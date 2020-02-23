@@ -1,4 +1,6 @@
 # Is Climate Change Real? How Do You Know?
+![Image of Sunset Over Windfarm](https://i.postimg.cc/Ss15Qkd2/karsten-wurth-0w-u-Ta0-Xz7w-unsplash.jpg)
+Photo by Karsten Würth on Unsplash
 
 ## Overview
 This project uses common statistical analysis techniques to explore the relationships between carbon emissions, and the cost and amount of natural disasters globally over time!
