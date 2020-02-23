@@ -29,15 +29,15 @@ Data is broken down by the type of energy produced in the process, as either bei
 
 
 ## Analysis Summary
-At the end of [the analysis in my Jupyter Notebook](analysis.ipynb), I hope to present the following to you:
+Please visit [the Jupyter notebook](analysis.ipynb) to see my full analysis. At the end of [the analysis](analysis.ipynb), I hope to present the following to you:
 
 1. **Rising Above (and Below) the Mean**:
 By the decade, the mean and median count of natural disasters rises throughout the 20th century, and have dropped (so far) during the 21st century.
-Reason why? Possibly due to regression to the mean.
+Possibly due to regression to the mean.
 2. **Disasters in the 21st Century**:
 The population subset of years 2000-2018 make up:
-37.5% of those years that have above average number of total natural disasters, compared to the annual mean of the 20th century (1900-2000).
-and nearly 43% of all years that have above average number of total natural disasters (1900-2018)
+37.5% of those years that have above average number of total natural disasters, compared to the annual mean of the 20th century (1900-2000);
+and nearly 43% of all years that have above average number of total natural disasters (1900-2018).
 3. **Distribution Across Centuries**:
 The relative frequency of natural disasters within the first 18 years of this century, is nearly half to that of the entirety of the previous century.
 4. **Skewing Our Data?**:
