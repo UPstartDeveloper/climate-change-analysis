@@ -8,35 +8,38 @@
     </h1>
     <!-- D3.js Anaimation goes here -->
     <div class="row">
-        <div class="data-area">
-            <div class="control">
-                <!-- Range controllers -->
-                <h3>Time Frame</h3>
-                <div class="control-date">
-                    <input class="underlined-input" type="number" value="2004" min="2004" max="2017" />
-                    <p>to</p>
-                    <input class="underlined-input" type="number" value="2005" min="2004" max="2017" />
-                </div>
-        
-        
-                <!-- Trend controllers -->
-                <h3>Selected columns</h3>
-                <div class="control-column">
-                    <ul>
-                        {% for category in categories%}
-                            <li class="control-column-item checked">
+        <div class="col-md-5">
+            <div class="data-area">
+                <div class="control">
+                    <!-- Range controllers -->
+                    <h3>Time Frame</h3>
+                    <div class="control-date">
+                        <input class="underlined-input" type="number" value="2004" min="2004" max="2017" />
+                        <p>to</p>
+                        <input class="underlined-input" type="number" value="2005" min="2004" max="2017" />
+                    </div>
+            
+            
+                    <!-- Trend controllers -->
+                    <h3>Selected columns</h3>
+                    <div class="control-category">
+                        <ul>
+                            {% for category in categories %}
+                            <li class="control-category-item checked">
                                 {{ category }}<input type="color" value="#000000" />
                             </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-        
-                <!-- Update the chart -->
-                <div class="control-button">
-                    <input type="button" onclick="updateChart()" value="Update chart">
+                            {% endfor %}
+                        </ul>
+                    </div>
+            
+                    <!-- Update the chart -->
+                    <div class="control-button">
+                        <input type="button" onclick="updateChart()" value="Update chart">
+                    </div>
                 </div>
             </div>
-        
+        </div>
+        <div class="col-md-7">
             <!-- Rendered chart -->
             <div class="chart">
                 <div class="ct-chart ct-perfect-fourth"></div>
