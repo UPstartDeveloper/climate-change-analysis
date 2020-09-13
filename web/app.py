@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+import datetime
+from functools import reduce
+
+from flask import Flask, render_template, request
 import pandas as pd
 
 # Instaniate global app variable
@@ -44,6 +47,39 @@ def get_emissions_chart():
         # colors=app.colors,  # context of template
         ), 200  # response code
     )
+
+
+@app.route("/time_series", methods=["GET"])
+def get_time_series_data():
+    '''Return the necessary data to create a time series'''
+    # Grab the requested years and trends from the query arguments
+    # default range is from 2004-2005 and default trends are diet and gym.
+    range_of_years = [int(year) for year in request.args.getlist("years")]
+    trends = request.args.getlist("trends")
+
+    # Generate a list of all the months we need to get
+    min_year = min(range_of_years)
+    max_year = max(range_of_years)
+
+    # Grab all of the data specified from start to stop range.
+    selected_date_range = app.emissions_df[
+        (app.emissions_df["YYYYMM"] >= datetime.datetime(min_year, 1, 1)) &
+        (app.emissions_df["YYYYMM"] <= datetime.datetime(max_year, 12, 31))
+    ]
+
+    # Slice the DF to include only the trends we want and then to sort our
+    # dataframe by those trends.
+    requested_trend_data = (
+        app.emissions_df.loc[
+            app.emissions_df['Description'] == 
+                'Total Energy Electric Power Sector CO2 Emissions', 
+            ['YYYYMM','Value']
+        ]
+    )
+    requested_trend_data = requested_trend_data.sort_values(by=["YYYYMM"])
+
+    # Return the dataframe as json
+    return requested_trend_data.to_json(), 200
 
 
 if __name__ == "__main__":
