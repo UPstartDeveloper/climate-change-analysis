@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Climate Change Analysis</title>
-    <!-- Bootstrap CSS and JS -->
+    <!-- Bootstrap, JQuery, Ajax -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -16,7 +16,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
+    <!-- Scripts for Chartist.js, Axios, Custom CSS -->
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="/static/index.js"></script>
     <!-- Google Analytics Script: https://developers.google.com/analytics/devguides/collection/analyticsjs -->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -53,10 +56,13 @@
             <ul class="list-group list-group-horizontal justify-content-end ml-auto" style="list-style-type: none;">
                 <div class="row ml-auto mr-2">
                     <li>
-                        <a href="#" class="btn btn-primary ml-2">Emissions Chart</a>
+                        <a href="/emissions" class="btn btn-primary ml-2">Emissions Chart</a>
                     </li>
                     <li>
                         <a href="#" class="btn btn-primary ml-2">Disasters Chart</a>
+                    </li>
+                    <li>
+                        <a href="/" class="btn btn-primary ml-2">Home</a>
                     </li>
                 </div>
             </ul>
@@ -64,8 +70,10 @@
     </nav>
 
     <!-- BODY CONTENT -->
-    {% block content %}
-    {% endblock %}
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
     
 </body>
 </html>
