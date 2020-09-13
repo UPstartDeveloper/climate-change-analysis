@@ -6,47 +6,8 @@
     <h1 class='text-center mt-2 mb-2'>
         CO2 Emission Generation by Category, 1973-2016 
     </h1>
+    <!-- D3.js Anaimation goes here -->
     <div class="row">
-        <!-- Space for Controls -->
-        <div class="col-md-3">
-            <!-- Div for Data -->
-            <div class="data-area mt-3">
-                <!-- Controls for Chart -->
-                <div class="control mt-4">
-                    <!-- Year-Month Controls -->
-                    <h3>Time Window</h3>
-                    <div class="control-date">
-                        <!-- starting and ending dates -->
-                        <input type="number" class="underlined-input" value="1973" min="1973" max="2016">
-                        <p>to</p>
-                        <input type="number" class="underlined-input" value="1974" min="1973" max="2016">
-                    </div>
-                    <!-- Control for Categories -->
-                    <h3 class="mt-3">Emission Categories</h3>
-                    <p>
-                        <strong>Use the color picker to tell the charts apart!</strong>
-                    </p>
-                    <div class="control-category">
-                        <ul>
-                            {% for category in categories %}
-                            <li class="list-group control-category-item checked">
-                                {{ category }}
-                                <input class="list-item" type="color" value="">
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <!-- Submit Request to Update the Chart -->
-                    <div class="control-button">
-                        <input class="btn btn-primary" type="button" onclick="updateChart()" value="Update Chart">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Space for Chart-->
-        <div class="col-md-9">
-
-        </div>
     </div>
    
 {% endblock %}
