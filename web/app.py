@@ -4,12 +4,15 @@ from functools import reduce
 from flask import Flask, render_template, request
 import pandas as pd
 
+import util
+
 # Instaniate global app variable
 app = Flask(__name__)
 
 # make a list of DataFrames, for each CSV we use
 dfs = [
-    pd.read_csv('../Data/carbon-emissions.csv'),  # carbon emissions
+    # using convert_emission_times(), the dates will already by converted
+    util.convert_emission_times('../Data/carbon-emissions.csv'),  # carbon emissions
 ]
 # attach a DataFrame of emissions data to the app variable
 app.emissions_df = dfs[0]
@@ -33,7 +36,7 @@ app.colors = [
 @app.route("/", methods=['GET'])
 def get_index():
     '''Return the view of the home page.'''
-    return render_template("index.html"), 200  # template and response code
+    return render_template("index.html", app=app), 200  # template and response code
 
 
 # Route to Get Emission Page
