@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def convert_emission_times(path):
+def clean_emission_data(path):
     """Converts all times in the emissions DataFrame into DateTime values."""
     # make a DF of the emissions CSV, wherever it's located
     carbon_df = pd.read_csv(path)
@@ -11,4 +11,9 @@ def convert_emission_times(path):
     new_df = carbon_df[~carbon_df["YYYYMM"].str.contains('-13')]
     # convert to datetime
     new_df["YYYYMM"] = pd.to_datetime(new_df['YYYYMM'], format="%Y-%m")
-    return new_df
+    # give each energy source it's own column
+    new_df = new_df.pivot(index='YYYYMM', columns='Description', values='Value')
+    # TODO: remove NaN values
+    # store a list of the different sources
+    carbon_categories = dfs[0]['Description'].unique()
+    return new_df, carbon_categories

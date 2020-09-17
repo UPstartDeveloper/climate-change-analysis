@@ -10,14 +10,12 @@ import web.util as util
 app = Flask(__name__)
 
 # make a list of DataFrames, for each CSV we use
-dfs = [
+climate_change_data = [
     # using convert_emission_times(), the dates will already by converted
-    util.convert_emission_times('../Data/carbon-emissions.csv'),  # carbon emissions
+    util.clean_emission_data('../Data/carbon-emissions.csv'),  # carbon emissions
 ]
-# attach a DataFrame of emissions data to the app variable
-app.emissions_df = dfs[0]
-# add a property for the different sources of the emissions
-app.carbon_categories = dfs[0]['Description'].unique()
+# attach properties for DataFrame of emissions and energy sources to app
+app.emissions_df, app.carbon_categories  = climate_change_data[0]
 # add a propert for different colors, each for an emission category
 app.colors = [
     '#F00064',  # hot pink
@@ -36,7 +34,7 @@ app.colors = [
 @app.route("/", methods=['GET'])
 def get_index():
     '''Return the view of the home page.'''
-    return render_template("index.html", app=app), 200  # template and response code
+    return render_template("index.html"), 200  # template and response
 
 
 # Route to Get Emission Page
@@ -55,10 +53,10 @@ def get_emissions_chart():
 @app.route("/time_series", methods=["GET"])
 def get_time_series_data():
     '''Return the necessary data to create a time series'''
-    # Grab the requested years and trends from the query arguments
-    # default range is from 2004-2005 and default trends are diet and gym.
+    # Grab the requested years and sources from the query arguments
+    # default ranges and sources
     range_of_years = [int(year) for year in request.args.getlist("years")]
-    trends = request.args.getlist("trends")
+    sources = request.args.getlist("sources")
 
     # Generate a list of all the months we need to get
     min_year = min(range_of_years)
@@ -70,9 +68,9 @@ def get_time_series_data():
         (app.emissions_df["YYYYMM"] <= datetime.datetime(max_year, 12, 31))
     ]
 
-    # Slice the DF to include only the trends we want and then to sort our
-    # dataframe by those trends.
-    requested_trend_data = (
+    # Slice the DF to include only the sources we want and then to sort our
+    # dataframe by those sources.
+    requested_sources_data = (
         app.emissions_df.loc[
             app.emissions_df['Description'] == 
                 'Total Energy Electric Power Sector CO2 Emissions', 
