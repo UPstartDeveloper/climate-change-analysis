@@ -15,11 +15,11 @@ const lines = [  // each is for a different energy source
 
 // Grab all the categories
 const categoryList = document.querySelector('.control-category ul');
-const columns = categoryList.children;
+const sources = categoryList.children;
 
-for (let i = 0, length = columns.length; i < length; i += 1) {
-    columns[i].children[0].addEventListener("input", function() {
-        updateLines(columns);
+for (let i = 0, length = sources.length; i < length; i += 1) {
+    sources[i].children[0].addEventListener("input", function() {
+        updateLines(sources);
     });
 }
 
@@ -69,6 +69,7 @@ function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy
 
             // Update the chart and line colors.
             chart.update(chartData);
+            console.log(categoryList.children);
             updateLines(categoryList.children);
         })
         .catch(err => console.error(err));
@@ -93,7 +94,7 @@ function updateChart() {
         }
     }
 
-    // Grab all the checked columns
+    // Grab all the checked sources
     for (let i = 0, length = sources.length; i < length; i += 1) {
         if (sources[i].classList.contains("checked")) {
             queryString += "&sources=" + sources[i].innerText.toLowerCase();
@@ -106,7 +107,7 @@ function updateChart() {
 // Update the lines drawn with the correct colors
 function updateLines(items) {
     let lineNumber = 0;
-    // Grab all the checked columns
+    // Grab all the checked sources
     for (let i = 0, length = items.length; i < length; i += 1) {
         // Only color the checked off lines
         if (items[i].classList.contains("checked")) {
