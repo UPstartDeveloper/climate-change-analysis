@@ -64,20 +64,14 @@ def get_time_series_data():
 
     # Grab all of the data specified from start to stop range.
     selected_date_range = app.emissions_df[
-        (app.emissions_df["YYYYMM"] >= datetime.datetime(min_year, 1, 1)) &
-        (app.emissions_df["YYYYMM"] <= datetime.datetime(max_year, 12, 31))
+        (app.emissions_df.index >= datetime.datetime(min_year, 1, 1)) &
+        (app.emissions_df.index <= datetime.datetime(max_year, 12, 31))
     ]
 
-    # Slice the DF to include only the sources we want and then to sort our
-    # dataframe by those sources.
-    requested_sources_data = (
-        app.emissions_df.loc[
-            app.emissions_df['Description'] == 
-                'Total Energy Electric Power Sector CO2 Emissions', 
-            ['YYYYMM','Value']
-        ]
-    )
-    requested_trend_data = requested_trend_data.sort_values(by=["YYYYMM"])
+    # Slice the DF to include only the sources we want 
+    requested_trend_data = selected_date_range[sources]
+    # sort our dataframe by those sources.
+    # requested_trend_data = requested_trend_data.sort_values(by=["month"])
 
     # Return the dataframe as json
     return requested_trend_data.to_json(), 200
