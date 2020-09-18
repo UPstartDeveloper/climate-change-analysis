@@ -18,15 +18,15 @@ const categoryList = document.querySelector('.control-category ul');
 const columns = categoryList.children;
 
 for (let i = 0, length = columns.length; i < length; i += 1) {
-    columns[i].children[0].addEventListener("input", function () {
+    columns[i].children[0].addEventListener("input", function() {
         updateLines(columns);
     });
 }
 
 // Update the lists to be checked - toggler
-categoryList.addEventListener("click", evt => {
-    if (evt.target.tagName == "LI") {
-        evt.target.classList.toggle("checked");
+categoryList.addEventListener("click", event => {
+    if (event.target.tagName == "LI") {
+        event.target.classList.toggle("checked");
     }
 });
 
@@ -60,7 +60,7 @@ function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy
             }
             console.log(timeSeries);
             const chartData = {
-                labels: Object.values(timeSeries[0]).map(datetime => {
+                labels: Object.values(timeSeries['YYYYMM']).map(datetime => {
                     const date = new Date(datetime);
                     return `${date.getFullYear()}-${date.getMonth()}`;
                 }),

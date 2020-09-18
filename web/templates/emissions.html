@@ -6,7 +6,7 @@
     <h1 class='text-center mt-2 mb-2'>
         Most C02-Expensive Energy Sources, 1973-2016 
     </h1>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-md-5">
             <div class="data-area">
                 <div class="control">
@@ -22,9 +22,17 @@
                     <div class="control-category">
                         <ul>
                             {% for category in categories %}
-                            <li class="control-category-item checked">
-                                {{ category }}<input type="color" value="#000000" />
-                            </li>
+                                <!-- Check off the Total Energy column, as it's part of the default queryString -->
+                                {% if category == 'Total Energy Electric Power Sector CO2 Emissions' %}
+                                    <li class="control-category-item checked">
+                                        {{ category }}<input type="color" value="#000000" />
+                                    </li>
+                                <!-- Otherwise no checkmark -->
+                                {% else %}
+                                    <li class="control-category-item">
+                                        {{ category }}<input type="color" value="#000000" />
+                                    </li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

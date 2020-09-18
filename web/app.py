@@ -71,7 +71,7 @@ def get_time_series_data():
     # Slice the DF to include only the sources we want 
     requested_trend_data = selected_date_range[['YYYYMM'] + sources]
     # sort our dataframe by those sources.
-    # requested_trend_data = requested_trend_data.sort_values(by=["month"])
+    requested_trend_data = requested_trend_data.sort_values(by=["YYYYMM"])
 
     # Return the dataframe as json
     print(f"JSON: {requested_trend_data}")
