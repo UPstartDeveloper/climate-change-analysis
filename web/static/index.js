@@ -69,7 +69,7 @@ function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy
 
             // Update the chart and line colors.
             chart.update(chartData);
-            updateLines(trendList.children);
+            updateLines(categoryList.children);
         })
         .catch(err => console.error(err));
 }
@@ -126,5 +126,5 @@ function updateLines(items) {
         }
     }
 }
-
+console.log('calling getChart')
 getChartData();

@@ -74,6 +74,7 @@ def get_time_series_data():
     # requested_trend_data = requested_trend_data.sort_values(by=["month"])
 
     # Return the dataframe as json
+    print(f"JSON: {requested_trend_data}")
     return requested_trend_data.to_json(), 200
 
 

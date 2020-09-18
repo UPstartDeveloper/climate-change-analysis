@@ -5,7 +5,7 @@ def clean_emission_data(path):
     def fill_not_available(dataframe, column_name):
         '''Fills in 0 for all values in the column that are populated by "Not Available."'''
         new_values = list()
-        for item in dataframe[column_name].items():
+        for item in dataframe[column_name]:
             # get the value to append
             value = item
             # if value is NaN, change to 0
