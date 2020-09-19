@@ -1,5 +1,10 @@
+// Setting optional width and height of the chart
+let options = {
+    width: 800,
+    height: 600
+}
 // Creating a chart
-const chart = new Chartist.Line('.ct-chart', {});
+const chart = new Chartist.Line('.ct-chart', {}, options);
 
 const lines = [  // each is for a different energy source
     'srcOne',
@@ -58,7 +63,7 @@ function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy
                     seriesData.push(data);
                 }
             }
-            console.log(timeSeries);
+            // console.log(timeSeries['YYYYMM']);
             const chartData = {
                 labels: Object.values(timeSeries['YYYYMM']).map(datetime => {
                     const date = new Date(datetime);

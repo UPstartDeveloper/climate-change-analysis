@@ -45,6 +45,7 @@ def get_emissions_chart():
         render_template(
         "emissions.html",  # template name
         categories=app.carbon_categories,
+        colors=app.colors
         # colors=app.colors,  # context of template
         ), 200  # response code
     )
