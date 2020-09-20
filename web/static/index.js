@@ -7,19 +7,20 @@ let options = {
 const chart = new Chartist.Line('.ct-chart', {}, options);
 
 const lines = [  // each is for a different energy source
-    'srcOne',
-    'srcTwo',
-    'srcThree',
-    'srcFour',
-    'srcFive',
-    'srcSix',
-    'srcSeven',
-    'srcEight',
-    'srcNine'
+    "a",
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i'
 ];
 
 // Grab all the categories
 const categoryList = document.querySelector('.control-category ul');
+console.log("Categories" + categoryList.children);
 const sources = categoryList.children;
 
 for (let i = 0, length = sources.length; i < length; i += 1) {
@@ -111,6 +112,7 @@ function updateChart() {
 
 // Update the lines drawn with the correct colors
 function updateLines(items) {
+    console.log("Items" + items);
     let lineNumber = 0;
     // Grab all the checked sources
     for (let i = 0, length = items.length; i < length; i += 1) {
@@ -120,7 +122,7 @@ function updateLines(items) {
                 document.querySelector(`.ct-series-${lines[lineNumber]} .ct-line`);
             currentPoints =
                 document.querySelectorAll(`.ct-series-${lines[lineNumber]} .ct-point`);
-            console.log("Current line: " + currentLine);
+            // console.log("Current line: " + currentLine);
             console.log(currentLine);
             currentLine.style.cssText =
                 `stroke: ${items[i].children[0].value} !important;`;

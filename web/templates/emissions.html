@@ -4,10 +4,11 @@
 {% block content %}
     <!-- Page Header -->
     <h1 class='text-center mt-2 mb-2'>
-        Most C02-Expensive Energy Sources, 1973-2016 
+        Most CO2-Expensive Energy Sources, 1973-2016 
     </h1>
+    <h3 class="text-center">Measured in Million Metric Tons of Carbon Dioxide</h3>
     <div class="row mt-5">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="data-area">
                 <div class="control">
                     <!-- Range controllers -->
@@ -25,12 +26,12 @@
                                 <!-- Check off the Total Energy column, as it's part of the default queryString -->
                                 {% if category == 'Total Energy Electric Power Sector CO2 Emissions' %}
                                     <li class="control-category-item checked">
-                                        {{ category }}<input type="color" value="#000000" />
+                                        {{ category }}<input type="color" value={{ colors[loop.index0] }} />
                                     </li>
                                 <!-- Otherwise no checkmark -->
                                 {% else %}
                                     <li class="control-category-item">
-                                        {{ category }}<input type="color" value="#000000" />
+                                        {{ category }}<input type="color" value={{ colors[loop.index0] }} />
                                     </li>
                                 {% endif %}
                             {% endfor %}
@@ -44,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <!-- Rendered chart -->
             <div class="chart">
                 <div class="ct-chart ct-perfect-fourth"></div>
