@@ -75,7 +75,6 @@ function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy
 
             // Update the chart and line colors.
             chart.update(chartData);
-            console.log(categoryList.children);
             updateLines(categoryList.children);
         })
         .catch(err => console.error(err));
@@ -112,7 +111,6 @@ function updateChart() {
 
 // Update the lines drawn with the correct colors
 function updateLines(items) {
-    console.log("Items" + items);
     let lineNumber = 0;
     // Grab all the checked sources
     for (let i = 0, length = items.length; i < length; i += 1) {
@@ -122,8 +120,6 @@ function updateLines(items) {
                 document.querySelector(`.ct-series-${lines[lineNumber]} .ct-line`);
             currentPoints =
                 document.querySelectorAll(`.ct-series-${lines[lineNumber]} .ct-point`);
-            // console.log("Current line: " + currentLine);
-            console.log(currentLine);
             currentLine.style.cssText =
                 `stroke: ${items[i].children[0].value} !important;`;
 
