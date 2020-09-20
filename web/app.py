@@ -34,7 +34,6 @@ app.colors = [
 @app.route("/", methods=['GET'])
 def get_index():
     '''Return the view of the home page.'''
-    print(app.emissions_df.columns)
     return render_template("index.html"), 200  # template and response
 
 
@@ -46,8 +45,7 @@ def get_emissions_chart():
         render_template(
         "emissions.html",  # template name
         categories=app.carbon_categories,
-        colors=app.colors
-        # colors=app.colors,  # context of template
+        colors=app.colors # context of template 
         ), 200  # response code
     )
 
@@ -80,7 +78,6 @@ def get_time_series_data():
     requested_trend_data = requested_trend_data.sort_values(by=["YYYYMM"])
 
     # Return the dataframe as json
-    print(f"JSON: {requested_trend_data}")
     return requested_trend_data.to_json(), 200
 
 

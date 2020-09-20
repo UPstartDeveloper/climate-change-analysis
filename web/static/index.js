@@ -7,20 +7,13 @@ let options = {
 const chart = new Chartist.Line('.ct-chart', {}, options);
 
 const lines = [  // each is for a different energy source
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i"
+    "a","b","c",
+    "d","e","f",
+    "g","h","i"
 ];
 
 // Grab all the categories
 const categoryList = document.querySelector('.control-category ul');
-console.log("Categories" + categoryList.children);
 const sources = categoryList.children;
 
 for (let i = 0, length = sources.length; i < length; i += 1) {
@@ -64,7 +57,7 @@ function getChartData(queryString = "?years=1973&years=1974&sources=Total Energy
                     seriesData.push(data);
                 }
             }
-            // console.log(timeSeries['YYYYMM']);
+            // get relevant dates and emission values
             const chartData = {
                 labels: Object.values(timeSeries['YYYYMM']).map(datetime => {
                     const date = new Date(datetime);
