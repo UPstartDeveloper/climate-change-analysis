@@ -34,6 +34,7 @@ app.colors = [
 @app.route("/", methods=['GET'])
 def get_index():
     '''Return the view of the home page.'''
+    print(app.emissions_df.columns)
     return render_template("index.html"), 200  # template and response
 
 
@@ -58,6 +59,10 @@ def get_time_series_data():
     # default ranges and sources
     range_of_years = [int(year) for year in request.args.getlist("years")]
     sources = request.args.getlist("sources")
+    # add proper casing to the sources list
+    sources = [
+        util.uppercase(source) for source in sources
+    ]
 
     # Generate a list of all the months we need to get
     min_year = min(range_of_years)

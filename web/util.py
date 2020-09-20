@@ -41,3 +41,28 @@ def clean_emission_data(path):
     carbon_df.index = list(range(len(dates)))
     carbon_df['YYYYMM'] = dates
     return carbon_df, carbon_categories
+
+
+def uppercase(string):
+    """
+    Given a string representing one of the categories, uppercase it so 
+        it matches one of the carbon categories.
+    """
+    # split the string into separate tokens
+    tokens = string.split()
+    # capitalize the first letter of every token
+    for index, token in enumerate(tokens):
+        # and the second, if it is supposed to be 'CO2'
+        if index == len(tokens) - 2:
+            tokens[index] = 'CO2'
+        else:
+            token = token[0].upper() + token[1:]
+            # edge case: words with hyphens
+            if token == 'Non-biomass':
+                token = 'Non-Biomass'
+            tokens[index] = token
+    # rejoin as one string, with spaces in between
+    string = tokens[0]
+    for token in tokens[1:]:
+        string += ' ' + token
+    return string

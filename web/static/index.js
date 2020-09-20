@@ -120,6 +120,8 @@ function updateLines(items) {
                 document.querySelector(`.ct-series-${lines[lineNumber]} .ct-line`);
             currentPoints =
                 document.querySelectorAll(`.ct-series-${lines[lineNumber]} .ct-point`);
+            console.log("Current line: " + currentLine);
+            console.log(currentLine);
             currentLine.style.cssText =
                 `stroke: ${items[i].children[0].value} !important;`;
 
