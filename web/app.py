@@ -24,9 +24,9 @@ app.colors = [
     '#FF8DEF',  # pink
     '#50296A',  # purple
     '#810D0D',  # brown
-    '#545273',  # dark indigo
-    '#D8AA61',  # light brown
     '#FFFDC7',  # yellow
+    '#D8AA61',  # light brown
+    '#545273',  # dark indigo
 ]
 
 
