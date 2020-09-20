@@ -30,6 +30,11 @@
         ga('create', 'UA-XXXXX-Y', 'auto');
         ga('send', 'pageview');
     </script>
+    <!-- Scripts for Chartist.js CSS + CDN, Axios, & Custom CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <!-- NAVBAR -->
@@ -73,12 +78,7 @@
         {% endblock %}
     </div>
 
-    <!-- Scripts for Chartist.js, Axios, Custom CSS -->
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-    <link rel="stylesheet" href="/static/style.css">
+    <!-- Script for Emissions Chart -->
     <script src="/static/index.js"></script>
-
-    
 </body>
 </html>

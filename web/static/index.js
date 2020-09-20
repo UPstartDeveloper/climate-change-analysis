@@ -8,14 +8,14 @@ const chart = new Chartist.Line('.ct-chart', {}, options);
 
 const lines = [  // each is for a different energy source
     "a",
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i'
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i"
 ];
 
 // Grab all the categories
@@ -36,7 +36,7 @@ categoryList.addEventListener("click", event => {
     }
 });
 
-function getChartData(queryString = "?years=1973&years=2016&sources=Total Energy Electric Power Sector CO2 Emissions") {
+function getChartData(queryString = "?years=1973&years=1974&sources=Total Energy Electric Power Sector CO2 Emissions") {
     // sending the request and grabbing data
     axios
         .get("/time_series" + queryString)
@@ -129,8 +129,9 @@ function updateLines(items) {
                     `stroke: ${items[i].children[0].value} !important;`;
             }
             lineNumber += 1;
+            
         }
+        
     }
 }
-console.log('calling getChart')
 getChartData();
