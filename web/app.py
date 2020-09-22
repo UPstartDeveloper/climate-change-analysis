@@ -4,7 +4,7 @@ from functools import reduce
 from flask import Flask, render_template, request
 import pandas as pd
 
-import util
+import web.util as util
 
 # Instaniate global app variable
 app = Flask(__name__)
