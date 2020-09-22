@@ -1,7 +1,9 @@
 # Dockerfile 
 FROM python:3.8.5
-COPY . /app
-WORKDIR /app
+WORKDIR /code
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+COPY . .
+CMD ["flask", "run"]
