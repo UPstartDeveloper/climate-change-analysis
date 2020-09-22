@@ -12,7 +12,7 @@ app = Flask(__name__)
 # make a list of DataFrames, for each CSV we use
 climate_change_data = [
     # using convert_emission_times(), the dates will already by converted
-    util.clean_emission_data('../Data/carbon-emissions.csv'),  # carbon emissions
+    util.clean_emission_data('Data/carbon-emissions.csv'),  # carbon emissions
 ]
 # attach properties for DataFrame of emissions and energy sources to app
 app.emissions_df, app.carbon_categories  = climate_change_data[0]
