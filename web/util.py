@@ -57,9 +57,11 @@ def uppercase(string):
             tokens[index] = 'CO2'
         else:
             token = token[0].upper() + token[1:]
-            # edge case: words with hyphens
+            # edge cases: words with hyphens
             if token == 'Non-biomass':
                 token = 'Non-Biomass'
+            elif token == 'Kerosene-type':
+                token  = 'Kerosene-Type'
             tokens[index] = token
     # rejoin as one string, with spaces in between
     string = tokens[0]
