@@ -3,23 +3,25 @@
 
 {% block content %}
     <!-- Page Header -->
-    <h1 class='text-center mt-2 mb-2'>
+    <h1 class='text-center mt-2'>
         Most CO2-Expensive Energy Sources, 1973-2016 
     </h1>
     <h3 class="text-center">Measured in Million Metric Tons of Carbon Dioxide</h3>
-    <div class="row mt-5">
+    <div class="row">
         <div class="col-md-4">
             <div class="data-area">
                 <div class="control">
                     <!-- Range controllers -->
                     <h3>Time Frame</h3>
+                    <p>This dates for this chart are currently 1973-1974. You can adjust them below!</p>
                     <div class="control-date">
                         <input class="underlined-input" type="number" value="1973" min="1973" max="2016" />
                         <p>to</p>
                         <input class="underlined-input" type="number" value="1974" min="1973" max="2016" />
                     </div>
                     <!-- Trend controllers -->
-                    <h3>Selected columns</h3>
+                    <h3 class="mt-3">Selected columns</h3>
+                    <p>You can select to see 9 different sources of CO2 emissions, by selecting one of the gray boxes below.</p>
                     <div class="control-category">
                         <ul>
                             {% for category in categories %}
