@@ -2,12 +2,8 @@ import datetime
 from functools import reduce
 
 from flask import Flask, render_template, request
+from flask_app import app, util
 import pandas as pd
-
-import web.util as util
-
-# Instaniate global app variable
-app = Flask(__name__)
 
 # make a list of DataFrames, for each CSV we use
 climate_change_data = [
@@ -80,7 +76,6 @@ def get_time_series_data():
     # Return the dataframe as json
     return requested_trend_data.to_json(), 200
 
-
 if __name__ == "__main__":
-    # Run the app locally 
-   app.run(host="0.0.0.0", port=5000, debug=True)
+    # Run the app locally
+    app.run(host="0.0.0.0", port=5000, debug=True)
