@@ -2,7 +2,7 @@ import datetime
 from functools import reduce
 
 from flask import Flask, render_template, request
-from flask_app import app, util
+from . import app, util
 import pandas as pd
 
 # make a list of DataFrames, for each CSV we use
