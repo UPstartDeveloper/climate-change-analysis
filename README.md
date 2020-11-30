@@ -6,6 +6,22 @@ Photo by Karsten Würth on Unsplash
 This project uses common statistical analysis techniques to explore the relationships between carbon emissions, and the cost and amount of natural disasters globally over time!
 The time period observed ranges from 1900 to 2018.
 
+## How to Run Locally - Using Docker
+
+### Prerequisites
+
+Make sure you have the latest version of [Docker](https://www.docker.com/get-started) installed. If you are not on macOS or experience any trouble installing Docker Compose, check out the [Docker documentation](https://docs.docker.com/compose/install/).
+
+### Instructions on using Docker Compose
+
+1. Once you have done so and have also cloned the repository locally, you can run the project using `docker-compose` in the root directory:
+
+    ```
+        docker-compose up --build
+    ```
+
+2. Then you can view the project at [http://0.0.0.0:5000](http://0.0.0.0:5000).
+
 ## Links to Datasets (on [Kaggle](https://www.kaggle.com/))
 1. [Natural Disasters Dataset](https://www.kaggle.com/dataenergy/natural-disaster-data)
 This dataset was posted by Aravind Sivalingam, and is a subset of what's available on [Our World in Data](https://ourworldindata.org/natural-disasters).
